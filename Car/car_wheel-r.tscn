@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://btp4f5751dcxs"]
+
+[ext_resource type="PackedScene" uid="uid://c1hphy6stt7mj" path="res://Assets/Models/Car-Wheel-alt.glb" id="1_yaab0"]
+
+[node name="Wheel-R" type="Node3D"]
+
+[node name="Car-Wheel-alt" parent="." instance=ExtResource("1_yaab0")]
+
+[editable path="Car-Wheel-alt"]

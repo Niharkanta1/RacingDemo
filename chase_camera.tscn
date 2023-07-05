@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dw1hvtcpnublj"]
+
+[ext_resource type="Script" path="res://chase_camera.gd" id="1_ox6lp"]
+
+[node name="CameraPivot" type="Node3D"]
+script = ExtResource("1_ox6lp")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-1, -5.01436e-08, 7.16125e-08, 0, 0.819152, 0.573576, -8.74228e-08, 0.573576, -0.819152, 0, 8, -10)

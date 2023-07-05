@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://cgypwx5idr7rl"]
+
+[ext_resource type="PackedScene" uid="uid://clniy2p63ffld" path="res://Assets/Models/Roads.glb" id="1_ptxwu"]
+
+[node name="Roads" instance=ExtResource("1_ptxwu")]
+
+[node name="RampRoad" parent="." index="0"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 13.0837, 0, 0)
+
+[node name="Road_Curve" parent="." index="2"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, -22.6988)
+
+[node name="Road_Finish" parent="." index="3"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 2, 0, 0, 21.5283)
+
+[node name="Road_Land" parent="." index="4"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 10, -26.6956, 0, 0)

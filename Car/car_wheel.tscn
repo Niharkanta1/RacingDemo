@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://hbcaa5lak0ix"]
+
+[ext_resource type="PackedScene" uid="uid://ba0ja8kf2dor2" path="res://Assets/Models/Car-Wheel.glb" id="1_rb8lm"]
+
+[node name="Car-Wheel" instance=ExtResource("1_rb8lm")]
+
+[node name="Car-01" parent="." index="0"]
+wheel_radius = 0.3

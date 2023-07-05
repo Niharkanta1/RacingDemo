@@ -1,0 +1,58 @@
+[gd_scene load_steps=7 format=3 uid="uid://b5llnexorpjf"]
+
+[ext_resource type="Texture2D" uid="uid://dm7q7r2as0ucp" path="res://Assets/Textures/Dark/texture_04.png" id="1_k8ktq"]
+[ext_resource type="Script" path="res://Car/car.gd" id="1_ylbw7"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_e0p75"]
+size = Vector3(2, 0.3, 1)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_s06n4"]
+points = PackedVector3Array(0.954305, 0.141967, 0.5, -0.914286, -0.15, -0.463492, -0.985089, 0.146777, -0.5, 0.985089, 0.146777, -0.5, -0.954305, 0.141967, 0.5, 0.914286, -0.15, 0.479365, 0.914286, -0.15, -0.463492, -0.914286, -0.15, 0.479365)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xlsfs"]
+albedo_texture = ExtResource("1_k8ktq")
+uv1_triplanar = true
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_t3m1h"]
+material = SubResource("StandardMaterial3D_xlsfs")
+top_radius = 0.3
+bottom_radius = 0.3
+height = 0.2
+radial_segments = 12
+
+[node name="SampleCar" type="VehicleBody3D"]
+script = ExtResource("1_ylbw7")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_e0p75")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("ConvexPolygonShape3D_s06n4")
+
+[node name="FrontLeftWheel" type="VehicleWheel3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.776641, 0, 0.611274)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="FrontLeftWheel"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -2.98023e-07, 0, -0.0961903)
+mesh = SubResource("CylinderMesh_t3m1h")
+
+[node name="FrontLeftWheel2" type="VehicleWheel3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.482094, 0, 0.611274)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="FrontLeftWheel2"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -2.98023e-07, 0, -0.0961903)
+mesh = SubResource("CylinderMesh_t3m1h")
+
+[node name="FrontLeftWheel3" type="VehicleWheel3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.482094, 0, -0.609844)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="FrontLeftWheel3"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -2.98023e-07, 0, -0.0961903)
+mesh = SubResource("CylinderMesh_t3m1h")
+
+[node name="FrontLeftWheel4" type="VehicleWheel3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.705077, 0, -0.609844)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="FrontLeftWheel4"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -2.98023e-07, 0, -0.0961903)
+mesh = SubResource("CylinderMesh_t3m1h")
