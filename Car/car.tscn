@@ -1,9 +1,14 @@
-[gd_scene load_steps=9 format=3 uid="uid://cuw4ftk0ilxth"]
+[gd_scene load_steps=10 format=3 uid="uid://cuw4ftk0ilxth"]
 
 [ext_resource type="Script" path="res://Car/car.gd" id="1_bithd"]
 [ext_resource type="Texture2D" uid="uid://cjit2j6aj2yo6" path="res://Assets/Models/Car_Palette01.png" id="2_wr2vt"]
 [ext_resource type="PackedScene" uid="uid://btp4f5751dcxs" path="res://Car/car_wheel-r.tscn" id="3_dhcnc"]
 [ext_resource type="PackedScene" uid="uid://b4c2e26jbxqjk" path="res://Car/car_wheel-l.tscn" id="4_6ldbx"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_56h6p"]
+rough = true
+bounce = 0.05
+absorbent = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_egghk"]
 resource_name = "Material"
@@ -45,11 +50,16 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_k8p1f")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ej3ta"]
-points = PackedVector3Array(-0.890018, 0.163788, 0.45949, 0.670325, 0.11777, 1.21461, 0.7309, -0.438593, -1.49171, -0.725622, -0.4387, 1.25048, -0.662647, 0.1177, -1.4516, 0.425961, 0.626206, -0.586008, -0.725622, -0.4387, -1.49198, 0.7309, -0.438593, 1.25021, -0.377029, 0.5718, 0.221002, -0.664901, 0.11777, 1.21461, 0.66807, 0.1177, -1.4516, -0.42384, 0.630337, -0.58964, 0.382452, 0.5718, 0.221002, 0.895442, 0.25314, 0.45949, -0.890018, 0.25314, 0.45949, 0.895442, 0.163788, 0.548693, -0.890018, 0.163788, 0.548693, 0.895442, 0.163788, 0.45949)
+[sub_resource type="BoxShape3D" id="BoxShape3D_fc0gx"]
+size = Vector3(1.2305, 0.677287, 2.45751)
 
 [node name="Car" type="VehicleBody3D"]
-mass = 220.0
+mass = 110.0
+center_of_mass_mode = 1
+center_of_mass = Vector3(0, -0.15, 0.25)
+physics_material_override = SubResource("PhysicsMaterial_56h6p")
+gravity_scale = 1.1
+brake = 1.0
 script = ExtResource("1_bithd")
 
 [node name="Car-01" type="MeshInstance3D" parent="."]
@@ -57,13 +67,17 @@ mesh = SubResource("ArrayMesh_d1kno")
 skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("ConvexPolygonShape3D_ej3ta")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.145491)
+shape = SubResource("BoxShape3D_fc0gx")
 
 [node name="FR" type="VehicleWheel3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.614736, -0.323702, 0.656267)
+brake = 1.0
 use_as_steering = true
+wheel_roll_influence = 0.05
 wheel_radius = 0.3
-suspension_stiffness = 50.0
+suspension_travel = 5.0
+suspension_stiffness = 60.0
 damping_compression = 1.9
 damping_relaxation = 2.0
 
@@ -71,9 +85,12 @@ damping_relaxation = 2.0
 
 [node name="FL" type="VehicleWheel3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.576656, -0.323702, 0.656267)
+brake = 1.0
 use_as_steering = true
+wheel_roll_influence = 0.05
 wheel_radius = 0.3
-suspension_stiffness = 50.0
+suspension_travel = 5.0
+suspension_stiffness = 60.0
 damping_compression = 1.9
 damping_relaxation = 2.0
 
@@ -81,9 +98,13 @@ damping_relaxation = 2.0
 
 [node name="BR" type="VehicleWheel3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.614736, -0.323702, -0.894174)
+brake = 1.0
 use_as_traction = true
+wheel_roll_influence = 0.05
 wheel_radius = 0.3
-suspension_stiffness = 50.0
+wheel_friction_slip = 10.4
+suspension_travel = 5.0
+suspension_stiffness = 60.0
 damping_compression = 1.9
 damping_relaxation = 2.0
 
@@ -91,9 +112,13 @@ damping_relaxation = 2.0
 
 [node name="BL" type="VehicleWheel3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.576656, -0.323702, -0.894174)
+brake = 1.0
 use_as_traction = true
+wheel_roll_influence = 0.05
 wheel_radius = 0.3
-suspension_stiffness = 50.0
+wheel_friction_slip = 10.4
+suspension_travel = 5.0
+suspension_stiffness = 60.0
 damping_compression = 1.9
 damping_relaxation = 2.0
 

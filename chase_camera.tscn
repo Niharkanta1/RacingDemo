@@ -1,9 +1,23 @@
-[gd_scene load_steps=2 format=3 uid="uid://dw1hvtcpnublj"]
+[gd_scene load_steps=5 format=3 uid="uid://dw1hvtcpnublj"]
 
 [ext_resource type="Script" path="res://chase_camera.gd" id="1_ox6lp"]
+[ext_resource type="Shader" path="res://pixel_camera.gdshader" id="2_rtgsm"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dfjvw"]
+render_priority = 0
+shader = ExtResource("2_rtgsm")
+
+[sub_resource type="QuadMesh" id="QuadMesh_dpev8"]
+material = SubResource("ShaderMaterial_dfjvw")
+size = Vector2(10, 10)
 
 [node name="CameraPivot" type="Node3D"]
 script = ExtResource("1_ox6lp")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-1, -5.01436e-08, 7.16125e-08, 0, 0.819152, 0.573576, -8.74228e-08, 0.573576, -0.819152, 0, 8, -10)
+transform = Transform3D(-1, 4.37114e-08, -7.57103e-08, 0, 0.866025, 0.5, 8.74228e-08, 0.5, -0.866025, 0, 8, -10)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.40341)
+visible = false
+mesh = SubResource("QuadMesh_dpev8")
