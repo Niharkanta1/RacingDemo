@@ -1,0 +1,29 @@
+[gd_scene load_steps=2 format=3 uid="uid://dtj6t0urkb1op"]
+
+[ext_resource type="PackedScene" uid="uid://81ts7n8r0cip" path="res://Assets/Models/Race-Decorations.glb" id="1_16a2o"]
+
+[node name="Race-Decorations" instance=ExtResource("1_16a2o")]
+
+[node name="Stone_001" parent="." index="0"]
+transform = Transform3D(0.999404, 0.0345332, 0, -0.0345332, 0.999404, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="Tyre" parent="." index="6"]
+visible = false
+
+[node name="TyrePile_001" parent="." index="7"]
+visible = false
+
+[node name="TyrePile_002" parent="." index="8"]
+visible = false
+
+[node name="Tree_001" parent="." index="9"]
+visible = false
+
+[node name="Tree_002" parent="." index="10"]
+visible = false
+
+[node name="Fence_001" parent="." index="11"]
+visible = false
+
+[node name="FenceClose_001" parent="." index="12"]
+visible = false

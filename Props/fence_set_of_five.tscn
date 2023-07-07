@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://4yrs4oybeakm"]
+
+[ext_resource type="PackedScene" uid="uid://in01hvyfl4bk" path="res://Props/fence_long.tscn" id="1_an8uq"]
+[ext_resource type="PackedScene" uid="uid://bytoyn1v51hyj" path="res://Props/fence.tscn" id="2_delx0"]
+
+[node name="FenceSetOfFive" type="Node3D"]
+
+[node name="Fence" parent="." instance=ExtResource("1_an8uq")]
+
+[node name="Fence2" parent="." instance=ExtResource("1_an8uq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.26774, 0, 0)
+
+[node name="Fence3" parent="." instance=ExtResource("1_an8uq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.54162, 0, 0)
+
+[node name="Fence4" parent="." instance=ExtResource("1_an8uq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.7245, 0, 0)
+
+[node name="Fence5" parent="." instance=ExtResource("1_an8uq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 0, 0)
+
+[node name="FenceClose2" parent="." instance=ExtResource("2_delx0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.3079, 0, 0)

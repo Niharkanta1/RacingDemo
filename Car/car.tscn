@@ -63,6 +63,7 @@ brake = 1.0
 script = ExtResource("1_bithd")
 
 [node name="Car-01" type="MeshInstance3D" parent="."]
+lod_bias = 0.001
 mesh = SubResource("ArrayMesh_d1kno")
 skeleton = NodePath("")
 
